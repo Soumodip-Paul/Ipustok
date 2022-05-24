@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notes",
+  "info": {
+    "singularName": "note",
+    "pluralName": "notes",
+    "displayName": "Note",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Tag": {
+      "type": "string",
+      "required": true,
+      "maxLength": 10,
+      "minLength": 3
+    },
+    "Title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 30,
+      "minLength": 5
+    },
+    "Description": {
+      "type": "richtext",
+      "required": true,
+      "minLength": 10,
+      "maxLength": 1000
+    },
+    "Author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "Notes"
+    }
+  }
+}
