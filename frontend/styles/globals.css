@@ -1,0 +1,31 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.roboto {
+  font-family: 'Roboto', serif, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.borderRadius {
+  border-radius: 6px;
+}
+.roundedCircle {
+  border-radius: 100%;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
