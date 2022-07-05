@@ -19,7 +19,6 @@ const SignInForm = ({ openDialog: i = e => { return null} }) => {
     }
 
     const handleSubmit = (e) => {
-        console.log(e.target)
         e.preventDefault();
         loginWithCredentials(auth, identitefier, password)
         closeRef(e)

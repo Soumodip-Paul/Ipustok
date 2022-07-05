@@ -27,7 +27,8 @@ const LogInHome = (props) => {
   },[])
 
   return (
-    <><Backdrop
+    <>
+    <Backdrop
       sx={{ color: 'primary.main', zIndex: (theme) => theme.zIndex.drawer + 1, bgcolor: '#fff' }}
       open={open}
     >

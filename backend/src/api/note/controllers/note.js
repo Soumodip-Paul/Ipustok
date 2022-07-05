@@ -19,21 +19,27 @@ module.exports = createCoreController('api::note.note', ({strapi}) => ({
     if (!user) {
       return ctx.response.unauthorized([], [], []);
     }
-
-    const data = await strapi.db.query('api::note.note').findMany({where: {User : user.id}});  
-
-    if(!data){
-      return ctx.notFound();
+    ctx.query = {
+      ...ctx.query, filters: {
+        User: user.id,
+      }, sort : ['createdAt:desc']
     }
 
-    ctx.send(data);
+    // Calling the default core action
+    const { data, meta } = await super.find(ctx);
+
+    // some more custom logic
+    meta.date = Date.now()
+
+    return { data, meta };
+
   },
-    async findOne(ctx) {
-        // some logic here
-        const i = await strapi.db.query("api::note.note").findOne({where: {id: ctx.params.id,User:ctx.state.user.id}});
+  async findOne(ctx) {
+    // some logic here
+    const i = await strapi.db.query("api::note.note").findOne({ where: { id: ctx.params.id, User: ctx.state.user.id } });
 
-        if ( !i ) ctx.response.unauthorized([], [], [])
+    if (!i) ctx.response.unauthorized([], [], [])
 
-        return i;
-      }
+    return i;
+  }
 }));

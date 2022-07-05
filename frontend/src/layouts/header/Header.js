@@ -1,5 +1,6 @@
 import React from "react";
 import FeatherIcon from "feather-icons-react";
+import { SearchIcon, RefreshIcon } from '@heroicons/react/outline'
 import { AppBar, Box, IconButton, Toolbar } from "@mui/material";
 import PropTypes from "prop-types";
 // Dropdown Component
@@ -24,10 +25,32 @@ const Header = ({ sx, customClass, toggleMobileSidebar, position }) => {
         >
           <FeatherIcon icon="menu" width="20" height="20" />
         </IconButton>
+        <IconButton
+          size="large"
+          color="inherit"
+          aria-label="menu"
+          onClick={toggleMobileSidebar}
+          sx={{
+            display: {
+              lg: "none",
+              xs: "flex",
+            },
+          }}
+        >
+
+        </IconButton>
         {/* ------------------------------------------- */}
         {/* Search Dropdown */}
         {/* ------------------------------------------- */}
         <SearchDD />
+        <IconButton
+          size="large"
+          color="inherit"
+          aria-label="refresh"
+          // onClick={toggleMobileSidebar}
+        >
+          <RefreshIcon height={20} width={20} />
+        </IconButton>
         {/* ------------ End Menu icon ------------- */}
 
         <Box flexGrow={1} />

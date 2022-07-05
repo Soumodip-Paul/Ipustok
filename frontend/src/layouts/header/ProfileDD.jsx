@@ -1,5 +1,6 @@
 import React from "react";
 import FeatherIcon from "feather-icons-react";
+import NavLink from "next/link"
 import Image from "next/image";
 import userimg from "../../../assets/images/users/user2.jpg";
 import { AuthData } from "../../components/Authentication/Auth";
@@ -41,7 +42,7 @@ const ProfileDD = () => {
             height="30"
             className="roundedCircle"
           />
-          { user && <Box
+          {user && <Box
             sx={{
               display: {
                 xs: "none",
@@ -57,10 +58,10 @@ const ProfileDD = () => {
                 ml: 1,
               }}
             >
-              {user.Name || user.email.split('@')[0]}
+              {(user.Name && user.Name.split(/\s+/)[0]) || user.email.split('@')[0]}
             </Typography>
             <FeatherIcon icon="chevron-down" width="20" height="20" />
-          </Box> }
+          </Box>}
         </Box>
       </Button>
       <Menu
@@ -82,9 +83,9 @@ const ProfileDD = () => {
               aria-label="secondary mailbox folder"
               onClick={handleClose4}
             >
-              <ListItemButton>
+              <NavLink href={'/profile'}><ListItemButton>
                 <ListItemText primary="Edit Profile" />
-              </ListItemButton>
+              </ListItemButton></NavLink>
               <ListItemButton>
                 <ListItemText primary="Account" />
               </ListItemButton>

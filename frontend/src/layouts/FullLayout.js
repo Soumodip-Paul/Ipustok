@@ -36,7 +36,7 @@ const FullLayout = ({ children }) => {
   const [isMobileSidebarOpen, setMobileSidebarOpen] = React.useState(false);
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
   return (
-    <MainWrapper>
+    <MainWrapper className={'no-scroll'}>
       <Header
         sx={{
           paddingLeft: isSidebarOpen && lgUp ? "265px" : "",
@@ -55,7 +55,7 @@ const FullLayout = ({ children }) => {
           sx={{
             paddingTop: "20px",
             paddingLeft: isSidebarOpen && lgUp ? "280px!important" : "",
-          }}
+          }} 
         >
           <Box sx={{ minHeight: "calc(100vh - 170px)" }}>{children}</Box>
           <Footer />

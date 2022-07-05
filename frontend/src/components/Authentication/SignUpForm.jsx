@@ -18,10 +18,6 @@ const SignUpForm = ({ openDialog: i = (e) => { } }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
         if (i && i !== undefined) i(false)
         router.push( redirectUrl ? decodeURI(redirectUrl) : '/')
     };
